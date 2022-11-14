@@ -1,4 +1,4 @@
-### Simle to use React components for Keycloak. Just few lines setup and you are good to go. 👋
+### Simle to use React components for Keycloak. Just few lines setup and you are good to go. 
 
 Under Development. Will be coming soon.
 
