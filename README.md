@@ -1,4 +1,6 @@
-### Hi there 👋
+### Simle to use React components for Keycloak. Just few lines setup and you are good to go. 👋
+
+Under Development. Will be coming soon.
 
 <!--
 **keycloak-react/keycloak-react** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
