@@ -1,7 +1,6 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import KeycloakProvider from "../../keycloak/KeycloakProvider";
 import Keycloak from "keycloak-js";
+import KeycloakProvider from "../../keycloak/KeycloakProvider";
 
 describe("KeycloakProvider tests", () => {
   test("Should render child component", () => {
