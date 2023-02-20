@@ -1,0 +1,27 @@
+{
+  "name": "keycloak-react",
+  "version": "1.0.0",
+  "description": "Under Development. Will be coming soon.",
+  "main": "index.js",
+  "dependencies": {
+    "keycloak-js": "^19.0.2",
+    "react": "^18.0.0",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "test": "react-scripts test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keycloak-react/keycloak-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keycloak-react/keycloak-react/issues"
+  },
+  "homepage": "https://github.com/keycloak-react/keycloak-react#readme"
+}
