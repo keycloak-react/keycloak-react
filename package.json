@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rimraf dist && babel src/keycloak --out-dir dist --copy-files",
+    "build": "tsc --module commonjs --outDir dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

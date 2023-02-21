@@ -1,3 +1,4 @@
+import React from "react";
 import { act, render } from "@testing-library/react";
 import { useKeycloak } from "../../keycloak/useKeycloak";
 import KeycloakProvider from "../../keycloak/KeycloakProvider";

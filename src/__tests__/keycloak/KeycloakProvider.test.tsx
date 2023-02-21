@@ -1,3 +1,4 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import Keycloak from "keycloak-js";
 import KeycloakProvider from "../../keycloak/KeycloakProvider";
