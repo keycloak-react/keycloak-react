@@ -1,6 +1,6 @@
 # Simple Keycloak React
 
-Simple keycloak react provide a global app authentication support which actually extends a functionality or keycloak-js.
+Simple keycloak react has been built on top of keycloak-js extending all of its functionalities to provide a global authentication support for your react applications.
 
 ## Installation
 
@@ -11,36 +11,61 @@ Using npm :
 ## Example
 
 - Step 1
-  Just use below Provider at app level.
+
+  Just wrap your application inside the given provider.
 
   ```
-  import KeycloakProvider from "simple-keycloak-react/dist/keycloak/KeycloakProvider.js";
+  import { KeycloakProvider } from "simple-keycloak-react";
 
-  <KeycloakProvider client={$authInstance}/>
+  <KeycloakProvider client={authInstance} />
   ```
 
-  Here "authInstance" is a Keycloak instance with proper configuration of realm, clientIds,Urls of keycloak.
+  Here "authInstance" is a Keycloak instance having proper configuration of realm, clientIds, urls of keycloak
+  and can be initialized like:
+
+  ```
+  const authInstance = new Keycloak(keycloakSetting)
+  ```
+
+  where
+
+  ```
+  const keycloakSetting = {
+    url: keycloakUrl[environment],
+    realm: keycloakRealm[environment],
+    clientId: keycloakClientId[environment]
+  };
+  ```
 
 - Step 2
-  In Private paths or Private Components , you can use custom hook of useKeycloak for finding a status of authentication with keycloak
+
+  Next, you can use provided custom hook to check the authentication status for all your private routes/components as:
 
   ```
-    import { useKeycloak } from "simple-keycloak-react/dist/keycloak/useKeycloak";
+    import { useKeycloak } from "simple-keycloak-react";
 
     const { keycloak, initialized } = useKeycloak();
   ```
 
-  Like here ,
+  - check if user is authenticated or not:
 
-  - keycloak.authenticated will give response user authentiated or not.
-  - keycloak.login() will give response user logged in or not.
+  ```
+    const authenticated = keycloak.authenticated
+  ```
 
-## Why we needed this package ?
+  - If user is not authenticated then this will lead to login page of keycloak:
 
-- To solve problem of app level user auth management with keycloak
-- keycloak-js original modules are not providing simplicity to handle auth at app level
+  ```
+    keycloak.login()
+  ```
 
-## What problem we solved here ?
+## Why do we need this package ?
 
-- We inherited usecases of keycloak-js and modified for simplicity
-- We have created a Context Provider called KeycloakProvider to solve global user auth management which can be used for private route level
+- To simplify usage of keycloak-js within React applications.
+- Because it provides simple access management solution for
+  modern React applications.
+
+## What problems did we solve here ?
+
+- We made use of existing keycloak-js library to build a custom hook and made the whole development React friendly.
+- We have created a Context Provider called <b>KeycloakProvider</b> which provides global user authentication management system that can be used at private route levels.
