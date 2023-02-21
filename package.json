@@ -1,6 +1,6 @@
 {
   "name": "simple-keycloak-react",
-  "version": "0.1.5",
+  "version": "0.1.10",
   "author": "keycloak-react",
   "private": false,
   "main": "dist/index.js",

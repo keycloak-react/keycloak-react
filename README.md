@@ -15,7 +15,7 @@ Using npm :
   Just wrap your application inside the given provider.
 
   ```
-  import KeycloakProvider from "simple-keycloak-react/dist/keycloak/KeycloakProvider.js";
+  import { KeycloakProvider } from "simple-keycloak-react";
 
   <KeycloakProvider client={authInstance} />
   ```
@@ -42,7 +42,7 @@ Using npm :
   Next, you can use provided custom hook to check the authentication status for all your private routes/components as:
 
   ```
-    import { useKeycloak } from "simple-keycloak-react/dist/keycloak/useKeycloak";
+    import { useKeycloak } from "simple-keycloak-react";
 
     const { keycloak, initialized } = useKeycloak();
   ```
@@ -53,10 +53,10 @@ Using npm :
     const authenticated = keycloak.authenticated
   ```
 
-  - check if the user is already logged in:
+  - If user is not authenticated then this will lead to login page of keycloak:
 
   ```
-    const isLoggedIn = keycloak.login()
+    keycloak.login()
   ```
 
 ## Why do we need this package ?
