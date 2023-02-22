@@ -1,6 +1,6 @@
 {
   "name": "keycloak-react-web",
-  "version": "0.1.15",
+  "version": "0.1.17",
   "author": "keycloak-react",
   "private": false,
   "main": "dist/index.js",
@@ -57,5 +57,15 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
+  "keywords": [
+    "keycloak-react",
+    "react-keycloak",
+    "keycloak-react-web",
+    "keycloak-react-wrapper",
+    "keycloak-provider",
+    "keycloak-authentication",
+    "keycloak",
+    "keycloak-js"
+  ],
   "license": "MIT"
 }
