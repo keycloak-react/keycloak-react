@@ -1,5 +1,6 @@
 import { default as KeycloakProvider } from './KeycloakProvider';
+import { KeycloakContextConsumer, createAuthContext } from './keycloakContext';
+import { useKeycloak } from './useKeycloak';
+import { KeycloakAuthProviderProps } from './interfaces';
 
-
-export { useKeycloak } from './useKeycloak';
-export { KeycloakProvider }; 
+export { KeycloakProvider, KeycloakContextConsumer, createAuthContext, useKeycloak, KeycloakAuthProviderProps }; 
