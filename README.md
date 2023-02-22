@@ -1,12 +1,14 @@
-# Simple Keycloak React
+# Keycloak React Web
 
-Simple keycloak react has been built on top of keycloak-js extending all of its functionalities to provide a global authentication support for your react applications.
+Keycloak React Web has been built on top of keycloak-js extending all of its functionalities to provide a global authentication support for your react applications.
 
 ## Installation
 
 Using npm :
 
-`npm i simple-keycloak-react`
+```
+npm i keycloak-react-web
+```
 
 ## Example
 
@@ -15,7 +17,7 @@ Using npm :
   Just wrap your application inside the given provider.
 
   ```
-  import { KeycloakProvider } from "simple-keycloak-react";
+  import { KeycloakProvider } from "keycloak-react-web";
 
   <KeycloakProvider client={authInstance} />
   ```
@@ -42,7 +44,7 @@ Using npm :
   Next, you can use provided custom hook to check the authentication status for all your private routes/components as:
 
   ```
-    import { useKeycloak } from "simple-keycloak-react";
+    import { useKeycloak } from "keycloak-react-web";
 
     const { keycloak, initialized } = useKeycloak();
   ```
