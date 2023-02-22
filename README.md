@@ -12,9 +12,7 @@ npm i keycloak-react-web
 
 ## Uses
 
-- Step 1
-
-  Just wrap your application inside the given provider.
+- Wrap your application inside the given provider.
 
   ```
   import { KeycloakProvider } from "keycloak-react-web";
@@ -39,13 +37,15 @@ npm i keycloak-react-web
     realm: <keycloak realm name>,
     clientId: <keycloak client id>
   };
-
-  initOptions: This is an optional field. Refer option parameter of init function https://www.keycloak.org/docs/latest/securing_apps/index.html#methods
+  
   ```
+  ```
+  initOptions: <optional>
+  ```
+    This is an optional field. Refer option parameter of init function https://www.keycloak.org/docs/latest/securing_apps/index.html#methods
 
-- Step 2
 
-  Next, you can use provided custom hook to check the authentication status for all your private routes/components as:
+- You can use provided custom hook to check the authentication status for all your private routes/components as:
 
   ```
     import { useKeycloak } from "keycloak-react-web";
