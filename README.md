@@ -19,7 +19,9 @@ npm i keycloak-react-web
   ```
   import { KeycloakProvider } from "keycloak-react-web";
 
-  <KeycloakProvider client={authInstance} />
+  <KeycloakProvider client={authInstance}>
+  {Component}
+  </KeycloakProvider>
   ```
 
   Here "authInstance" is a Keycloak instance having proper configuration of realm, clientIds, urls of keycloak
@@ -33,9 +35,9 @@ npm i keycloak-react-web
 
   ```
   const keycloakSetting = {
-    url: keycloakUrl[environment],
-    realm: keycloakRealm[environment],
-    clientId: keycloakClientId[environment]
+    url: <keycloak base url>,
+    realm: <keycloak realm name>,
+    clientId: <keycloak client id>
   };
   ```
 
@@ -49,17 +51,12 @@ npm i keycloak-react-web
     const { keycloak, initialized } = useKeycloak();
   ```
 
-  - check if user is authenticated or not:
+  check if user is authenticated or not:
 
   ```
     const authenticated = keycloak.authenticated
   ```
 
-  - If user is not authenticated then this will lead to login page of keycloak:
-
-  ```
-    keycloak.login()
-  ```
 
 ## Why do we need this package ?
 
