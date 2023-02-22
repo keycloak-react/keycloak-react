@@ -1,6 +1,6 @@
 {
   "name": "keycloak-react-web",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "author": "keycloak-react",
   "private": false,
   "main": "dist/index.js",
@@ -13,9 +13,8 @@
     "url": "git+https://github.com/keycloak-react/keycloak-react"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
-    "keycloak-js": "^19.0.2",
-    "web-vitals": "^2.1.4"
+    
+    "keycloak-js": "^19.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -55,7 +54,9 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.12",
     "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11"
+    "@types/react-dom": "^18.0.11",
+    "@babel/polyfill": "^7.12.1",
+    "web-vitals": "^2.1.4"
   },
   "license": "MIT"
 }
