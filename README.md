@@ -1,23 +1,27 @@
-# Simple Keycloak React
+# Keycloak React Web
 
-Simple keycloak react has been built on top of keycloak-js extending all of its functionalities to provide a global authentication support for your react applications.
+Keycloak React Web has been built on top of keycloak-js extending all of its functionalities to provide a global authentication support for your react applications.
 
 ## Installation
 
 Using npm :
 
-`npm i simple-keycloak-react`
+```
+npm i keycloak-react-web
+```
 
-## Example
+## Uses
 
 - Step 1
 
   Just wrap your application inside the given provider.
 
   ```
-  import { KeycloakProvider } from "simple-keycloak-react";
+  import { KeycloakProvider } from "keycloak-react-web";
 
-  <KeycloakProvider client={authInstance} />
+  <KeycloakProvider client={authInstance} initOptions={{initOptions}}>
+    <YOUR APP CODE GOES HERE>
+  </KeycloakProvider>
   ```
 
   Here "authInstance" is a Keycloak instance having proper configuration of realm, clientIds, urls of keycloak
@@ -31,10 +35,12 @@ Using npm :
 
   ```
   const keycloakSetting = {
-    url: keycloakUrl[environment],
-    realm: keycloakRealm[environment],
-    clientId: keycloakClientId[environment]
+    url: <keycloak base url>,
+    realm: <keycloak realm name>,
+    clientId: <keycloak client id>
   };
+
+  initOptions: This is an optional field. Refer option parameter of init function https://www.keycloak.org/docs/latest/securing_apps/index.html#methods
   ```
 
 - Step 2
@@ -42,23 +48,84 @@ Using npm :
   Next, you can use provided custom hook to check the authentication status for all your private routes/components as:
 
   ```
-    import { useKeycloak } from "simple-keycloak-react";
+    import { useKeycloak } from "keycloak-react-web";
 
     const { keycloak, initialized } = useKeycloak();
   ```
 
-  - check if user is authenticated or not:
+  check if user is authenticated or not:
 
   ```
     const authenticated = keycloak.authenticated
   ```
 
-  - If user is not authenticated then this will lead to login page of keycloak:
+  Getting tokens
 
   ```
-    keycloak.login()
+    const token = keycloak.token;
+    const refreshToken = keycloak.refreshToken;
   ```
+  refer https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter for all available properties present on keycloak instance.
 
+
+## Example:
+
+  Expample shows private route which will be accessible to authenticated users
+
+  ```
+  import React from 'react';
+  import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+  import { KeycloakProvider, useKeycloak } from "keycloak-react-web"
+  import Keycloak from 'keycloak-js';
+
+  const keycloakSetting = {
+      url: <keycloak base url>,
+      realm: <keycloak realm name>,
+      clientId: <keycloak client id>
+    };
+
+  const authInstance = new Keycloak(keycloakSetting)
+
+  function App() {
+    return (
+      <KeycloakProvider client={authInstance}>
+        <Router>
+          <Routes>
+            <Route
+              path={'/'}
+              element={<PrivateRoute component={Component} />}
+            />
+          </Routes>
+        </Router>
+      </KeycloakProvider>
+    );
+  }
+
+  const PrivateRoute = ({ component: Component }) => {
+    const { keycloak, initialized } = useKeycloak();
+    const context = useContext(UserContext);
+
+    useEffect(() => {
+      if (initialized) {
+        if (!keycloak.authenticated) {
+          keycloak.login();
+        }
+      }
+    }, [initialized]);
+
+    if (!initialized) {
+      return <p>Loading...</p>;
+    }
+
+    if (!keycloak.authenticated) {
+      return <p>Authenticating...</p>;
+    }
+
+    return (
+      <Component />
+    );
+  };
+  ```
 ## Why do we need this package ?
 
 - To simplify usage of keycloak-js within React applications.
