@@ -1,10 +1,10 @@
-import React from 'react';
-import { KeycloakAuthProviderProps } from './interfaces';
-import { KeycloakInitOptions } from 'keycloak-js';
-import { IAuthContextProps, keycloakContext } from './keycloakContext';
+import React from "react";
+import { KeycloakInitOptions } from "keycloak-js";
+import { IAuthContextProps, keycloakContext } from "./keycloakContext";
+import type { KeycloakAuthProviderProps } from "./interfaces";
 
 const defaultOptions: KeycloakInitOptions = {
-  onLoad: 'check-sso'
+  onLoad: "check-sso",
 };
 
 function createAuthProvider(AuthContext: React.Context<IAuthContextProps>) {
@@ -27,7 +27,11 @@ function createAuthProvider(AuthContext: React.Context<IAuthContextProps>) {
       initialize();
     }, []);
 
-    return <AuthContext.Provider value={{ initialized, client }}>{children}</AuthContext.Provider>;
+    return (
+      <AuthContext.Provider value={{ initialized, client }}>
+        {children}
+      </AuthContext.Provider>
+    );
   };
 
   return KeycloakAuthProvider;
